@@ -463,7 +463,6 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
 .bmi-form {
   max-width: 40rem;
   background: var(--off-white);
@@ -536,9 +535,27 @@ select, option {
   flex-direction: column;
   gap: 2rem;
 }
-
+#cookies {
+  font: 1rem var(--font-body);
+  background: var(--secondary-color);
+  color: var(--body-text-color);
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
 /* Responsive */
 @media (min-width: 48rem) {
+  #cookies {
+    flex-direction: row;
+    gap: 5rem;
+  }
   .content-d {
     font-size: 1rem;
   }
@@ -569,6 +586,9 @@ select, option {
   }
 }
 @media (min-width: 64rem) {
+  #cookies {
+    gap: 15rem;
+  }
   .item {
     padding: 3rem;
     gap: 3rem;

@@ -8,10 +8,6 @@ const overweightDiv = document.getElementById("overweight");
 const obeseDiv = document.getElementById("obese");
 const morbidlyObeseDiv = document.getElementById("morbidly-obese");
 
-const gastricSleeveDiv = document.getElementById("gastric-sleeve");
-const gastricBandDiv = document.getElementById("gastric-band");
-const gastricBypassDiv = document.getElementById("gastric-bypass");
-
 let bmiValue;
 let previousSurgery;
 let diabetes;
@@ -62,8 +58,8 @@ form.addEventListener("submit", function(event) {
     form.style.display = "none";
 });
 
-// show intervention questions when "show-questions-btn" is clicked
-showQuestionsBtn.addEventListener("click", function() {
+    // show intervention questions when "show-questions-btn" is clicked
+    showQuestionsBtn.addEventListener("click", function() {
     interventionQuestions.style.display = "flex";
     showQuestionsBtn.style.display = "none";
 });
@@ -71,30 +67,39 @@ showQuestionsBtn.addEventListener("click", function() {
 // get user answers to intervention questions and recommend appropriate surgery
 const recommendBtn = document.getElementById("recommend-btn");
 
+const interventionsWrap = document.querySelector('.items-wrap');
+const itemGastricSleeve = document.querySelector('.item:nth-child(1)');
+const itemGastricBypass = document.querySelector('.item:nth-child(2)');
+const itemGastricBand = document.querySelector('.item:nth-child(3)');
+const recommendInterventionDiv = document.querySelector(".recommendation");
+
 recommendBtn.addEventListener("click", function() {
-    
+
+    // clone the intervention items
+    const clonedGSleeve = itemGastricSleeve.cloneNode(true);
+    const clonedGBypass = itemGastricBypass.cloneNode(true);
+    const clonedGBand = itemGastricBand.cloneNode(true);
+
     // get user answers to questions
     previousSurgery = document.getElementById("previous-surgery").value;
     diabetes = document.getElementById("diabetes").value;
     hypertension = document.getElementById("hypertension").value;
     
-    // hide divs if the user changes an option and presses the button again (so the answers don't stack)
-    gastricBypassDiv.style.display = "none";
-    gastricSleeveDiv.style.display = "none";
-    gastricBandDiv.style.display = "none";
-
-    // determine appropriate intervention based on BMI and answers to questions
+    // clear previous recommendations if button is pressed more than once
+    recommendInterventionDiv.innerHTML = '';
+    
     if (bmiValue < 35 && diabetes === "yes" && hypertension === "yes") {
-        gastricBypassDiv.style.display = "flex";
+        recommendInterventionDiv.appendChild(clonedGBypass);
     } else if (bmiValue < 35 && (diabetes === "yes" || hypertension === "yes")) {
-        gastricSleeveDiv.style.display = "flex";
+        recommendInterventionDiv.appendChild(clonedGSleeve);
     } else if (bmiValue < 40 && previousSurgery === "no") {
-        gastricBandDiv.style.display = "flex";
+        recommendInterventionDiv.appendChild(clonedGBand);
     } else if (bmiValue < 40) {
-        gastricSleeveDiv.style.display = "flex";
+        recommendInterventionDiv.appendChild(clonedGSleeve);
     } else {
-        gastricBypassDiv.style.display = "flex";
+        recommendInterventionDiv.appendChild(clonedGBypass);
     }
+
 });
 
 const resetBtn = document.getElementById("reset-btn");
@@ -116,9 +121,7 @@ resetBtn.addEventListener("click", function() {
     morbidlyObeseDiv.style.display = "none";
 
     // hide all the intervention divs
-    gastricSleeveDiv.style.display = "none";
-    gastricBandDiv.style.display = "none";
-    gastricBypassDiv.style.display = "none";
+    recommendInterventionDiv.innerHTML = '';
 
     // reset BMI value to null
     bmiValue = null;

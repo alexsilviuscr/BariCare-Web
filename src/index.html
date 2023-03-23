@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./index.scss" />
     <script type="module" src="./index.js"></script>
+    <script type="module" src="./cookies.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="icon" type="image/x-icon" href="../images/baricare_logo.svg">
     <title>BariCare</title>
@@ -177,53 +178,7 @@
           <button id="recommend-btn" class="hero-button-2">Find out</button>
         </div>
 
-        <div id="gastric-sleeve" class="recommendation" style="display:none;">
-          <h2>Based on your BMI and answers, we recommend:</h2>
-          <div class="item intervention-suggestion">
-            <div class="item-intro home">
-              <span class="item-number">01</span>
-              <p class="item-title">Gastric sleeve</p>
-            </div>
-            <p class="item-description">
-              It is a weight loss procedure that involves reducing the size of the stomach by removing a large portion of it.
-            </p>
-            <a href="./gastric_sleeve.html" class="read-more-button">
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-        <div id="gastric-bypass" class="recommendation" style="display:none;">
-          <h2>Based on your BMI and answers, we recommend:</h2>
-          <div class="item intervention-suggestion">
-            <div class="item-intro home">
-              <span class="item-number">02</span>
-              <p class="item-title">Gastric bypass</p>
-            </div>
-            <p class="item-description">
-              It is a weight loss procedure that involves creating a smaller stomach and rerouting the small intestine to this new stomach.
-            </p>
-            <a href="./gastric_bypass.html" class="read-more-button">
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-        <div id="gastric-band" class="recommendation" style="display:none;">
-          <h2>Based on your BMI and answers, we recommend:</h2>
-          <div class="item intervention-suggestion">
-            <div class="item-intro home">
-              <span class="item-number">03</span>
-              <p class="item-title">Gastric band</p>
-            </div>
-            <p class="item-description">
-              It is a weight loss procedure that involves placing an adjustable band around the upper part of the stomach to create a small stomach pouch.
-            </p>
-            <a href="./gastric_band.html" class="read-more-button">
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-       
+        <div class="recommendation"></div>
 
         <button id="reset-btn" style="display: none;" class="hero-button-reset">Reset Form</button>
       </div> <!-- End intervention-form wrap -->
@@ -231,6 +186,17 @@
       <!-- End BMI calculator section -->
 
     </div> <!-- end wrapper div -->
+
+    <!-- Cookies div -->
+
+    <div id="cookies">
+      <div class="cookies-text">
+        <p>To enhance your browsing experience, we use cookies on our site. </p>
+        <p>By clicking 'Accept', you consent to our use of cookies.</p>
+    </div>
+      <button id="accept-btn" class="hero-button-2">Accept</button>
+    </div>
+    <!-- End cookies div -->
 
     <footer class="footer">
       <div class="footer-part">
