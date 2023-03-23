@@ -1,22 +1,13 @@
 {
   "source": "src/index.html",
   "browserslist": "> 5%",
-  "targets": {
-    "default": {
-      "publicUrl": "/Proiect-JS"
-    }
-  },
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
     "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.7.0",
-    "push-dir": "^0.4.1"
-  },
-  "dependencies": {
-    "bootstrap": "^5.2.0"
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3"
   }
 }

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./index.scss" />
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
+    <link rel="icon" type="image/x-icon" href="../images/baricare_logo.svg">
+    <title>BariCare - Gastric Bypass</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Header (Logo + Nav Menu)-->
+      <header>
+        <a href="./index.html" class="logo-link">
+          <div class="logo">
+            <img
+              src="../images/baricare_logo.svg"
+              class="logo-svg"
+              alt="BariCare Logo"
+            />
+            <p>Care</p>
+          </div>
+        </a>
+        <input type="checkbox" class="nav-toggle" id="nav-toggle" />
+        <label
+          for="nav-toggle"
+          class="nav-toggle-label"
+          aria-label="Menu button"
+          >
+        </label>
+        <nav>
+          <ul>
+            <li>
+              <a href="./index.html">Home</a>
+            </li>
+            <li>
+              <a href="./gastric_sleeve.html">Gastric sleeve</a>
+            </li>
+            <li>
+              <a class="active" href="./gastric_bypass.html">Gastric bypass</a>
+            </li>
+            <li>
+              <a href="./gastric_band.html">Gastric band</a>
+            </li>
+            <li>
+              <a href="./contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <!-- Breadcrumb navigation-->
+        <ul class="breadcrumb">
+          <li>
+            <a href="./index.html" class="breadcrumb-item">Home</a>
+          </li>
+          <li>
+            <a href="#" class="breadcrumb-item current-page">
+              <span aria-current="page">Gastric bypass</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="container-content">
+          <div class="content-intro">
+            <h1>Gastric bypass</h1>
+            <p class="item-description content-d">
+                The gastric bypass is also known as the “Roux-en-Y," which
+                is a French term meaning “in the form of the letter Y.” With
+                this procedure, your small intestine will end up in that form.
+            </p>
+            <p class="item-description content-d">
+                First, surgeons create a small pouch at the top of your stomach,
+                separating it from the lower portion with surgical staples.
+                Then they divide your small intestine and bring the new segment up to connect to the stomach pouch.
+            </p>
+            <p class="item-description content-d">Food will now flow through the new,
+                smaller stomach and lower segment of your small intestine, bypassing the rest.
+                This restricts how much your stomach can hold and also how much nutrition
+                your small intestine can absorb. Restricting the small intestine makes this
+                method more effective than gastric restriction alone.
+            </p>
+          </div>
+          <img src="../images/gastric_bypass.png" alt="Gastric sleeve surgery diagram" />
+        </div>
+        <!-- Advantages -->
+        <section
+          id="types-of-interventions"
+          class="types-of-interventions detail-page"
+        >
+          <h1>Advantages</h1>
+          <div class="items-wrap">
+            <!-- Item #1-->
+            <div class="item">
+              <div class="item-intro">
+                <span class="item-number">01</span>
+                <p class="item-description">
+                  Reliable and long-lasting weight loss
+                </p>
+              </div>
+            </div>
+            <!-- Item #2-->
+            <div class="item">
+              <div class="item-intro">
+                <span class="item-number">02</span>
+                <p class="item-description">
+                  Effective for remission of obesity-associated conditions
+                </p>
+              </div>
+            </div>
+            <!-- Item #3-->
+            <div class="item">
+              <div class="item-intro">
+                <span class="item-number">03</span>
+                <p class="item-description">
+                  Refined and standardized technique
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Disadvantages -->
+        <section
+        id="types-of-interventions"
+        class="types-of-interventions detail-page"
+        >
+        <h1>Disadvantages</h1>
+        <div class="items-wrap">
+          <!-- Item #1-->
+          <div class="item">
+            <div class="item-intro">
+              <span class="item-number">01</span>
+              <p class="item-description">
+                More vitamin and mineral deficiencies than sleeve gastrectomy or gastric banding
+              </p>
+            </div>
+          </div>
+          <!-- Item #2-->
+          <div class="item">
+            <div class="item-intro">
+              <span class="item-number">02</span>
+              <p class="item-description">
+                There is a risk for small bowel complications and obstruction
+              </p>
+            </div>
+          </div>
+          <!-- Item #3-->
+          <div class="item">
+            <div class="item-intro">
+              <span class="item-number">03</span>
+              <p class="item-description">
+                May cause “dumping syndrome”, a feeling of sickness after eating or drinking, especially sweets
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="footer-part">
+        <p>
+          <i class="fa-regular fa-copyright"></i>Silviu 2023
+        </p>
+        <a href="https://www.linkedin.com/in/alexscripcariuc/" target="_blank"><i class="fa-brands fa-linkedin social"></i></a>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li>
+            <a href="./index.html">Home</a>
+          </li>
+          <li>
+            <a href="./gastric_sleeve.html">Gastric sleeve</a>
+          </li>
+          <li>
+            <a href="./gastric_bypass.html">Gastric bypass</a>
+          </li>
+          <li>
+            <a href="./gastric_band.html">Gastric band</a>
+          </li>
+          <li>
+            <a href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  <body> 
+</html>
