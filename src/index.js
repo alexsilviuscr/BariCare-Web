@@ -26,27 +26,21 @@ form.addEventListener("submit", function(event) {
     containerDiv.className = "bmi-result";
 
     // show appropriate div based on BMI value and add to container div
-    if (bmiValue < 18.5) {
-        underweightDiv.style.display = "block";
-        containerDiv.appendChild(document.createElement("p").appendChild(document.createTextNode(`Your BMI is ${bmiValue.toFixed(1)}.`)));
-        containerDiv.appendChild(underweightDiv);
-    } else if (bmiValue >= 18.5 && bmiValue < 25) {
-        normalDiv.style.display = "block";
-        containerDiv.appendChild(document.createElement("p").appendChild(document.createTextNode(`Your BMI is ${bmiValue.toFixed(1)}.`)));
-        containerDiv.appendChild(normalDiv);
-    } else if (bmiValue >= 25 && bmiValue < 30) {
-        overweightDiv.style.display = "block";
-        containerDiv.appendChild(document.createElement("p").appendChild(document.createTextNode(`Your BMI is ${bmiValue.toFixed(1)}.`)));
-        containerDiv.appendChild(overweightDiv);
-    } else if (bmiValue >= 30 && bmiValue < 40) {
-        obeseDiv.style.display = "block";
-        containerDiv.appendChild(document.createElement("p").appendChild(document.createTextNode(`Your BMI is ${bmiValue.toFixed(1)}.`)));
-        containerDiv.appendChild(obeseDiv);
-    } else {
-        morbidlyObeseDiv.style.display = "block";
-        containerDiv.appendChild(document.createElement("p").appendChild(document.createTextNode(`Your BMI is ${bmiValue.toFixed(1)}.`)));
-        containerDiv.appendChild(morbidlyObeseDiv);
-    }
+    let weightDiv;
+
+    if (bmiValue < 18.5) weightDiv = underweightDiv;
+    else if (bmiValue < 25) weightDiv = normalDiv;
+    else if (bmiValue < 30) weightDiv = overweightDiv;
+    else if (bmiValue < 40) weightDiv = obeseDiv;
+    else weightDiv = morbidlyObeseDiv;
+
+    weightDiv.style.display = "block";
+    containerDiv.appendChild(
+        document.createElement("p").appendChild(
+            document.createTextNode("Your BMI is ${bmiValue.toFixed(1)}.")
+        )
+    );
+    containerDiv.appendChild(weightDiv);
 
     // append container div to result and show "show-questions-btn"
     const result = document.getElementById("result");
@@ -58,8 +52,8 @@ form.addEventListener("submit", function(event) {
     form.style.display = "none";
 });
 
-    // show intervention questions when "show-questions-btn" is clicked
-    showQuestionsBtn.addEventListener("click", function() {
+// show intervention questions when "show-questions-btn" is clicked
+showQuestionsBtn.addEventListener("click", function() {
     interventionQuestions.style.display = "flex";
     showQuestionsBtn.style.display = "none";
 });
@@ -67,14 +61,15 @@ form.addEventListener("submit", function(event) {
 // get user answers to intervention questions and recommend appropriate surgery
 const recommendBtn = document.getElementById("recommend-btn");
 
-const interventionsWrap = document.querySelector('.items-wrap');
-const itemGastricSleeve = document.querySelector('.item:nth-child(1)');
-const itemGastricBypass = document.querySelector('.item:nth-child(2)');
-const itemGastricBand = document.querySelector('.item:nth-child(3)');
+const interventionsWrap = document.querySelector(".items-wrap");
+const [
+    itemGastricSleeve,
+    itemGastricBypass,
+    itemGastricBand
+] = interventionsWrap.children;
 const recommendInterventionDiv = document.querySelector(".recommendation");
 
 recommendBtn.addEventListener("click", function() {
-
     // clone the intervention items
     const clonedGSleeve = itemGastricSleeve.cloneNode(true);
     const clonedGBypass = itemGastricBypass.cloneNode(true);
@@ -87,19 +82,27 @@ recommendBtn.addEventListener("click", function() {
     
     // clear previous recommendations if button is pressed more than once
     recommendInterventionDiv.innerHTML = '';
-    
-    if (bmiValue < 35 && diabetes === "yes" && hypertension === "yes") {
-        recommendInterventionDiv.appendChild(clonedGBypass);
-    } else if (bmiValue < 35 && (diabetes === "yes" || hypertension === "yes")) {
-        recommendInterventionDiv.appendChild(clonedGSleeve);
-    } else if (bmiValue < 40 && previousSurgery === "no") {
-        recommendInterventionDiv.appendChild(clonedGBand);
-    } else if (bmiValue < 40) {
-        recommendInterventionDiv.appendChild(clonedGSleeve);
-    } else {
-        recommendInterventionDiv.appendChild(clonedGBypass);
-    }
 
+    const hasDiabetes = document.getElementById("diabetes").value === "yes";
+    const hasHypertension = document.getElementById("hypertension").value === "yes";
+
+    // bmiValues as variables
+    const isNormalWeight = bmiValue < 25;
+    const isOverweight = bmiValue < 30;
+    const isObese = bmiValue < 40;
+    const isMorbidlyObese = bmiValue >= 40;
+    
+    if (isNormalWeight && hasDiabetes && hasHypertension) {
+        recommendInterventionDiv.appendChild(clonedGBypass);
+      } else if (isNormalWeight && (hasDiabetes || hasHypertension)) {
+        recommendInterventionDiv.appendChild(clonedGSleeve);
+      } else if (isOverweight && !previousSurgery) {
+        recommendInterventionDiv.appendChild(clonedGBand);
+      } else if (isOverweight) {
+        recommendInterventionDiv.appendChild(clonedGSleeve);
+      } else {
+        recommendInterventionDiv.appendChild(clonedGBypass);
+      }
 });
 
 const resetBtn = document.getElementById("reset-btn");
@@ -121,7 +124,7 @@ resetBtn.addEventListener("click", function() {
     morbidlyObeseDiv.style.display = "none";
 
     // hide all the intervention divs
-    recommendInterventionDiv.innerHTML = '';
+    recommendInterventionDiv.innerHTML = "";
 
     // reset BMI value to null
     bmiValue = null;
