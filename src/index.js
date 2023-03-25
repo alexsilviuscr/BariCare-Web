@@ -37,7 +37,7 @@ form.addEventListener("submit", function(event) {
     weightDiv.style.display = "block";
     containerDiv.appendChild(
         document.createElement("p").appendChild(
-            document.createTextNode("Your BMI is ${bmiValue.toFixed(1)}.")
+            document.createTextNode(`Your BMI is ${bmiValue.toFixed(1)}.`)
         )
     );
     containerDiv.appendChild(weightDiv);
