@@ -84,7 +84,6 @@ recommendBtn.addEventListener("click", function() {
     recommendInterventionDiv.innerHTML = '';
 
     // bmiValues as variables
-    const isNormalWeight = bmiValue < 25;
     const isOverweight = bmiValue < 30;
     const isObese = bmiValue < 40;
     const isMorbidlyObese = bmiValue >= 40;
@@ -93,14 +92,16 @@ recommendBtn.addEventListener("click", function() {
     const hasHypertension = hypertension === "yes";
     const hadSurgery = previousSurgery === "yes";
     
-    if (isNormalWeight && hasDiabetes && hasHypertension) {
-      recommendInterventionDiv.appendChild(clonedGBypass);
-    } else if (isNormalWeight && (hasDiabetes || hasHypertension)) {
-      recommendInterventionDiv.appendChild(clonedGSleeve);
-    } else if (isOverweight && !hadSurgery) {
+    if (isOverweight && !hadSurgery && !hasDiabetes && !hasHypertension) {
       recommendInterventionDiv.appendChild(clonedGBand);
+    } else if (isOverweight && !hadSurgery && (hasDiabetes || hasHypertension)) {
+        recommendInterventionDiv.appendChild(clonedGSleeve);
+    } else if (isOverweight && hadSurgery && (hasDiabetes || hasHypertension)) {
+      recommendInterventionDiv.appendChild(clonedGBypass);
     } else if (isObese && hasDiabetes && hadSurgery) {
       recommendInterventionDiv.appendChild(clonedGBypass);
+    } else if (isMorbidlyObese && !hadSurgery && (hasDiabetes || hasHypertension)) {
+        recommendInterventionDiv.appendChild(clonedGSleeve);
     } else {
       recommendInterventionDiv.appendChild(clonedGBypass);
     }
