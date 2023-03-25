@@ -83,26 +83,27 @@ recommendBtn.addEventListener("click", function() {
     // clear previous recommendations if button is pressed more than once
     recommendInterventionDiv.innerHTML = '';
 
-    const hasDiabetes = document.getElementById("diabetes").value === "yes";
-    const hasHypertension = document.getElementById("hypertension").value === "yes";
-
     // bmiValues as variables
     const isNormalWeight = bmiValue < 25;
     const isOverweight = bmiValue < 30;
     const isObese = bmiValue < 40;
     const isMorbidlyObese = bmiValue >= 40;
+
+    const hasDiabetes = diabetes === "yes";
+    const hasHypertension = hypertension === "yes";
+    const hadSurgery = previousSurgery === "yes";
     
     if (isNormalWeight && hasDiabetes && hasHypertension) {
-        recommendInterventionDiv.appendChild(clonedGBypass);
-      } else if (isNormalWeight && (hasDiabetes || hasHypertension)) {
-        recommendInterventionDiv.appendChild(clonedGSleeve);
-      } else if (isOverweight && !previousSurgery) {
-        recommendInterventionDiv.appendChild(clonedGBand);
-      } else if (isOverweight) {
-        recommendInterventionDiv.appendChild(clonedGSleeve);
-      } else {
-        recommendInterventionDiv.appendChild(clonedGBypass);
-      }
+      recommendInterventionDiv.appendChild(clonedGBypass);
+    } else if (isNormalWeight && (hasDiabetes || hasHypertension)) {
+      recommendInterventionDiv.appendChild(clonedGSleeve);
+    } else if (isOverweight && !hadSurgery) {
+      recommendInterventionDiv.appendChild(clonedGBand);
+    } else if (isObese && hasDiabetes && hadSurgery) {
+      recommendInterventionDiv.appendChild(clonedGBypass);
+    } else {
+      recommendInterventionDiv.appendChild(clonedGBypass);
+    }
 });
 
 const resetBtn = document.getElementById("reset-btn");
