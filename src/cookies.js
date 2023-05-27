@@ -8,7 +8,7 @@ if (cookiesAccepted) {
 } else {
     cookiesDiv.style.display = "flex";
 }
-// add event listener for DOMContentLoaded 
+// add event listener for load/DOMContentLoaded 
 window.addEventListener("load", () => {
   const acceptBtn = document.querySelector("#accept-btn"); 
 
