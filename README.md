@@ -6,7 +6,7 @@ Published link: https://baricare-web.netlify.app/
 
 ## Features
 
-- BMI Calculation: Users can input their weight and height to calculate their BMI (Body Mass Index) using the provided form.
+- BMI Calculator: Users can input their weight and height to calculate their BMI (Body Mass Index) using the provided form.
 - BMI Result: The application displays the calculated BMI value and shows the corresponding weight category based on the BMI value.
 - Intervention Questions: Users can answer intervention questions related to previous surgery, diabetes, and hypertension.
 - Surgical Intervention Recommendation: Based on the user's BMI value and intervention question answers, the application recommends appropriate surgical interventions.
