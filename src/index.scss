@@ -302,6 +302,9 @@ h1 {
   font-weight: 200;
   height: 8rem;
 }
+.contact-page .item-description {
+  height: fit-content;
+}
 .footer {
   background: var(--body-text-color);
   display: flex;
