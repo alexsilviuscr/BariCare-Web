@@ -240,7 +240,7 @@ nav a:hover {
   gap: 3rem;
   display: flex;
   flex-direction: column;
-  width: 70rem;
+  max-width: 70rem;
 }
 .home .types-of-interventions {
   align-items: center;
@@ -305,6 +305,9 @@ h1 {
   font-weight: 200;
   height: 8rem;
 }
+.content-intro .item-description {
+  height: fit-content;
+}
 .types-of-interventions .item-description {
   height: fit-content;
 }
@@ -355,7 +358,7 @@ h1 {
 .main-content.contact {
   gap: 3rem;
   min-height: calc(100vh - 3rem);
-  width: 70rem;
+  flex-grow: 1;
 }
 .breadcrumb {
   font: 1rem var(--font-body);
@@ -383,7 +386,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 3rem;
-  width: 70rem;
 }
 .container-content img {
   order: -1;
