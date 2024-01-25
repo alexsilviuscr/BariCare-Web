@@ -237,7 +237,7 @@ nav a:hover {
 }
 .types-of-interventions {
   padding: 5rem 1rem;
-  gap: 4rem;
+  gap: 3rem;
   display: flex;
   flex-direction: column;
   max-width: 70rem;
@@ -301,6 +301,9 @@ h1 {
   color: var(--off-white);
   font-weight: 200;
   height: 8rem;
+}
+.types-of-interventions .item-description {
+  height: fit-content;
 }
 .contact-page .item-description {
   height: fit-content;
