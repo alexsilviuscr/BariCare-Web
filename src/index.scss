@@ -240,7 +240,10 @@ nav a:hover {
   gap: 3rem;
   display: flex;
   flex-direction: column;
-  max-width: 70rem;
+  width: 70rem;
+}
+.home .types-of-interventions {
+  align-items: center;
 }
 h1 {
   font: 2rem var(--font-headers);
@@ -379,6 +382,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 3rem;
+  width: 70rem;
 }
 .container-content img {
   order: -1;
